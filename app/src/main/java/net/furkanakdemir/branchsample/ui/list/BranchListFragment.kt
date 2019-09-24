@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_branch_list.*
 import net.furkanakdemir.branchsample.R
 import net.furkanakdemir.branchsample.image.ImageLoader
@@ -64,7 +65,8 @@ class BranchListFragment : BaseFragment() {
 
     private fun setupRecyclerView() {
         branchListAdapter = BranchListAdapter(imageLoader) { branchViewItem ->
-            println(branchViewItem)
+            branchViewModel.selectBranch(branchViewItem)
+            findNavController().navigate(R.id.action_branchListFragment_to_branchDetailFragment)
         }
 
         branchesRecyclerView.apply {

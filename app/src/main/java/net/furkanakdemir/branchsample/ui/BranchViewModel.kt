@@ -21,6 +21,10 @@ class BranchViewModel @Inject constructor(
     val branchesLiveData: LiveData<List<BranchViewItem>>
         get() = _branchesLiveData
 
+    private val _branchLiveData = MutableLiveData<BranchViewItem>()
+    val branchLiveData: LiveData<BranchViewItem>
+        get() = _branchLiveData
+
     private val _eventLiveData = MutableLiveData<Event<ViewState>>()
     val eventLiveData: LiveData<Event<ViewState>>
         get() = _eventLiveData
@@ -43,6 +47,10 @@ class BranchViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun selectBranch(item: BranchViewItem) {
+        _branchLiveData.value = item
     }
 
     sealed class ViewState {
