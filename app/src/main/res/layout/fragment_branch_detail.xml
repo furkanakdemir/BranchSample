@@ -50,19 +50,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:showDividers="middle"
             android:divider="@drawable/divider"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:showDividers="middle">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:background="@android:color/white"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@android:color/white"
                 android:foreground="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
                 android:padding="@dimen/spacing_small"
                 tools:ignore="UnusedAttribute">
 
@@ -70,8 +70,10 @@
                     android:id="@+id/nameRowImageView"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/supplementler"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/spacing_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_name"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -85,11 +87,11 @@
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
                     android:lines="1"
+                    android:text="@string/branch_detail_name_title"
                     app:layout_constraintBottom_toTopOf="@+id/nameTextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/nameRowImageView"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/branch_detail_name_title" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -110,11 +112,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:background="@android:color/white"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@android:color/white"
                 android:foreground="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
                 android:padding="@dimen/spacing_small"
                 tools:ignore="UnusedAttribute">
 
@@ -122,8 +124,10 @@
                     android:id="@+id/categoryRowImageView"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/supplementler"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/spacing_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_category"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -162,11 +166,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:background="@android:color/white"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@android:color/white"
                 android:foreground="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
                 android:padding="@dimen/spacing_small"
                 tools:ignore="UnusedAttribute">
 
@@ -174,8 +178,10 @@
                     android:id="@+id/addressRowImageView"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/supplementler"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/spacing_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_address"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -188,8 +194,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
-                    android:text="@string/branch_detail_address_title"
                     android:lines="1"
+                    android:text="@string/branch_detail_address_title"
                     app:layout_constraintBottom_toTopOf="@+id/addressTextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/addressRowImageView"
