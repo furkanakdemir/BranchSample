@@ -60,8 +60,6 @@ class BranchViewModel @Inject constructor(
 
     fun setLocation(branchLocation: BranchLocation) {
         getBranchesUseCase.location = branchLocation
-
-        getBranches()
     }
 
     sealed class ViewState {

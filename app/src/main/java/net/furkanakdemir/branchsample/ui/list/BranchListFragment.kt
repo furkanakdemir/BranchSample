@@ -6,9 +6,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
@@ -17,7 +14,6 @@ import net.furkanakdemir.branchsample.R
 import net.furkanakdemir.branchsample.result.EventObserver
 import net.furkanakdemir.branchsample.ui.BranchViewModel
 import net.furkanakdemir.branchsample.ui.base.BaseFragment
-import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
@@ -25,12 +21,6 @@ import javax.inject.Inject
 class BranchListFragment : BaseFragment() {
 
     private lateinit var branchListAdapter: BranchListAdapter
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    private lateinit var branchViewModel: BranchViewModel
-
 
     override val layoutId: Int
         get() = R.layout.fragment_branch_list
@@ -41,10 +31,10 @@ class BranchListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        branchViewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get()
-
         setupRecyclerView()
+    }
 
+    override fun observeViewModel() {
         branchViewModel.branchesLiveData.observe(this, Observer {
             branchListAdapter.branches = it.toMutableList()
             showContent()
@@ -58,8 +48,6 @@ class BranchListFragment : BaseFragment() {
                 is BranchViewModel.ViewState.Error -> showMessage(it.message)
             }
         })
-
-        branchViewModel.getBranches()
     }
 
     private fun setupRecyclerView() {

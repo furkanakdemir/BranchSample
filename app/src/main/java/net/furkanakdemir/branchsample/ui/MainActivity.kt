@@ -1,7 +1,9 @@
 package net.furkanakdemir.branchsample.ui
 
-import android.location.Location
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.get
@@ -22,7 +24,6 @@ class MainActivity : DaggerAppCompatActivity() {
 
     private lateinit var branchViewModel: BranchViewModel
 
-
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,16 +31,18 @@ class MainActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupToolbar()
+        setupFusedLocationClient()
+        setupViewModel()
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        checkLocationPermission()
+    }
+
+    private fun setupViewModel() {
         branchViewModel = ViewModelProviders.of(this, viewModelFactory).get()
+    }
 
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location? ->
-                location?.let {
-                    branchViewModel.setLocation(BranchLocation(it.latitude, it.longitude))
-                }
-            }
+    private fun setupFusedLocationClient() {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
     }
 
     private fun setupToolbar() {
@@ -49,9 +52,55 @@ class MainActivity : DaggerAppCompatActivity() {
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
     }
 
+    private fun checkLocationPermission() {
+        val locationPermission = Manifest.permission.ACCESS_FINE_LOCATION
+        val permissionResult = ActivityCompat.checkSelfPermission(this, locationPermission)
+        if (permissionResult != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_CODE_LOCATION_PERMISSION
+            )
+        } else {
+            getLastKnownLocation()
+        }
+    }
+
+    private fun getLastKnownLocation() {
+        fusedLocationClient.lastLocation
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val lat = it.result?.latitude
+                    val lng = it.result?.longitude
+
+                    branchViewModel.setLocation(BranchLocation(lat, lng))
+                }
+
+                branchViewModel.getBranches()
+            }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_CODE_LOCATION_PERMISSION) {
+            if (grantResults.first() == PackageManager.PERMISSION_GRANTED) {
+                getLastKnownLocation()
+            } else {
+                branchViewModel.getBranches()
+            }
+        }
+    }
+
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
 
     fun setTitle(text: String) {
-        supportActionBar?.setTitle(text)
+        supportActionBar?.title = text
+    }
+
+    companion object {
+        private const val REQUEST_CODE_LOCATION_PERMISSION: Int = 99
     }
 }
