@@ -9,9 +9,9 @@ import javax.inject.Inject
 class RealBranchRepository @Inject constructor(
     private val remoteDataSource: BranchDataSource
 ) : BranchRepository {
-    override suspend fun getBranches(): Result<List<Branch>> {
+    override suspend fun getBranches(latlng: String): Result<List<Branch>> {
         return try {
-            val releases = remoteDataSource.getBranches()
+            val releases = remoteDataSource.getBranches(latlng)
             Result.Success(releases)
         } catch (e: IOException) {
             Result.Error(e)

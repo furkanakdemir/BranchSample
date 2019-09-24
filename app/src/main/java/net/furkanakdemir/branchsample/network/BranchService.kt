@@ -9,6 +9,6 @@ interface BranchService {
     @GET("/v2/venues/search")
     suspend fun getBranches(
         @Query("query") query: String,
-        @Query("ll") latlng: String = "41.058648,28.994625"
+        @Query("ll") latlng: String
     ): PlacesResponse?
 }

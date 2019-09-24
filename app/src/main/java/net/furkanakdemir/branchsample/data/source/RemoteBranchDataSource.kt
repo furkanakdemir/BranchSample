@@ -10,9 +10,9 @@ class RemoteBranchDataSource @Inject constructor(
     private val branchService: BranchService,
     private val domainMapper: ListMapper<PlacesResponse.Response.VenueRaw?, Branch>
 ) : BranchDataSource {
-    override suspend fun getBranches(): List<Branch> {
+    override suspend fun getBranches(latlng: String): List<Branch> {
         val remoteBranches: List<PlacesResponse.Response.VenueRaw?> =
-            branchService.getBranches(QUERY)?.response?.venues ?: emptyList()
+            branchService.getBranches(QUERY, latlng)?.response?.venues ?: emptyList()
         return domainMapper.map(remoteBranches)
     }
 

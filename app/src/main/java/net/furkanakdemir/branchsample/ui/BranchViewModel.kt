@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.furkanakdemir.branchsample.data.Branch
-import net.furkanakdemir.branchsample.data.BranchRepository
+import net.furkanakdemir.branchsample.domain.GetBranchesUseCase
 import net.furkanakdemir.branchsample.mapper.Mapper
 import net.furkanakdemir.branchsample.result.Event
 import net.furkanakdemir.branchsample.result.Result
 import javax.inject.Inject
 
 class BranchViewModel @Inject constructor(
-    private val branchRepository: BranchRepository,
+    private val getBranchesUseCase: GetBranchesUseCase,
     private val viewMapper: Mapper<Branch, BranchViewItem>
 ) : ViewModel() {
 
@@ -32,7 +32,7 @@ class BranchViewModel @Inject constructor(
     fun getBranches() {
         _eventLiveData.value = Event(ViewState.Loading)
         viewModelScope.launch {
-            when (val result = branchRepository.getBranches()) {
+            when (val result = getBranchesUseCase.getBranches()) {
                 is Result.Success -> {
                     if (result.data.isNullOrEmpty()) {
                         _eventLiveData.value = Event(ViewState.Empty("Empty List"))
