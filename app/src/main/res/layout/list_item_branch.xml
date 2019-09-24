@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:clickable="true"
     android:focusable="true"
+    android:background="@android:color/white"
     android:foreground="?android:attr/selectableItemBackground"
     android:padding="@dimen/spacing_small"
     tools:ignore="UnusedAttribute">
@@ -15,13 +16,12 @@
         android:id="@+id/imageTextView"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_info"
+        android:src="@drawable/supplementler"
         android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription"
-        tools:src="@tools:sample/avatars" />
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/nameTextView"
