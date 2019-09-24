@@ -14,7 +14,9 @@ class ViewMapper @Inject constructor() : Mapper<Branch, BranchViewItem> {
                     name,
                     category,
                     formatDistance(distance),
-                    address
+                    address,
+                    latitude,
+                    longitude
                 )
             }
         } ?: BranchViewItem.default()

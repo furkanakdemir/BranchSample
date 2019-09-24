@@ -15,12 +15,15 @@ class DomainMapper @Inject constructor() : Mapper<PlacesResponse.Response.VenueR
                     name.orEmpty(),
                     categories?.first()?.name.orEmpty(),
                     location?.distance.orZero(),
-                    location?.formattedAddress?.first().orEmpty()
+                    location?.formattedAddress?.first().orEmpty(),
+                    location?.lat.orZero(),
+                    location?.lng.orZero()
                 )
             }
         } ?: Branch.default()
     }
 
     private fun Int?.orZero(): Int = this ?: 0
+    private fun Double?.orZero(): Double = this ?: 0.0
 }
 

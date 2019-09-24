@@ -5,7 +5,9 @@ data class BranchViewItem(
     val name: String = "",
     val category: String = "",
     val distance: String = "0",
-    val address: String = ""
+    val address: String = "",
+    val latitude: Double = 0.0,
+    val longitude: Double = 0.0
 ) {
 
     companion object {
