@@ -38,7 +38,11 @@ class BranchViewModel @Inject constructor(
                         _eventLiveData.value = Event(ViewState.Empty("Empty List"))
                     } else {
                         val viewList = mutableListOf<BranchViewItem>()
-                        result.data.forEach { viewList += viewMapper.map(it) }
+
+                        val sortedByDistance = result.data
+                            .sortedWith(compareBy { it.distance })
+
+                        sortedByDistance.forEach { viewList += viewMapper.map(it) }
                         _branchesLiveData.value = viewList
                     }
                 }
