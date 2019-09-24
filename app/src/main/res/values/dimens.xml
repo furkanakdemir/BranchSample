@@ -3,4 +3,7 @@
     <!-- Spacing -->
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_medium">16dp</dimen>
+
+
+    <dimen name="height_product_row">56dp</dimen>\
 </resources>
