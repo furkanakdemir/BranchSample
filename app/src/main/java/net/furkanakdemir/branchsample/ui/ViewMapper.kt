@@ -6,6 +6,18 @@ import javax.inject.Inject
 
 class ViewMapper @Inject constructor() : Mapper<Branch, BranchViewItem> {
     override fun map(input: Branch?): BranchViewItem {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return input?.let {
+            with(it) {
+
+                BranchViewItem(
+                    id,
+                    name,
+                    category,
+                    formatDistance(distance)
+                )
+            }
+        } ?: BranchViewItem.default()
     }
+
+    private fun formatDistance(distance: Int): String = "$distance m"
 }

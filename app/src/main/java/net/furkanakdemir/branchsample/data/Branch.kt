@@ -1,11 +1,13 @@
 package net.furkanakdemir.branchsample.data
 
-data class Branch(val id: String) {
-
+data class Branch(
+    val id: String,
+    val name: String = "",
+    val category: String = "",
+    val distance: Int = 0
+) {
 
     companion object {
-
-        @JvmOverloads
         fun default(): Branch {
             return Branch("-1")
         }
