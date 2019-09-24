@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import kotlinx.android.synthetic.main.fragment_branch_list.*
 import net.furkanakdemir.branchsample.R
-import net.furkanakdemir.branchsample.image.ImageLoader
 import net.furkanakdemir.branchsample.result.EventObserver
 import net.furkanakdemir.branchsample.ui.BranchViewModel
 import net.furkanakdemir.branchsample.ui.base.BaseFragment
@@ -32,8 +31,6 @@ class BranchListFragment : BaseFragment() {
 
     private lateinit var branchViewModel: BranchViewModel
 
-    @Inject
-    lateinit var imageLoader: ImageLoader
 
     override val layoutId: Int
         get() = R.layout.fragment_branch_list
@@ -66,7 +63,7 @@ class BranchListFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        branchListAdapter = BranchListAdapter(imageLoader) { branchViewItem ->
+        branchListAdapter = BranchListAdapter() { branchViewItem ->
             branchViewModel.selectBranch(branchViewItem)
             findNavController().navigate(R.id.action_branchListFragment_to_branchDetailFragment)
         }

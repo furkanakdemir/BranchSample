@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import net.furkanakdemir.branchsample.R
-import net.furkanakdemir.branchsample.image.ImageLoader
 import net.furkanakdemir.branchsample.ui.BranchViewItem
 import net.furkanakdemir.branchsample.ui.base.BaseViewHolder
 
-class BranchListAdapter(val imageLoader: ImageLoader, val onBranchClick: (BranchViewItem) -> Unit) :
+class BranchListAdapter(val onBranchClick: (BranchViewItem) -> Unit) :
     RecyclerView.Adapter<BaseViewHolder<BranchViewItem>>() {
 
     var branches: MutableList<BranchViewItem> = mutableListOf()

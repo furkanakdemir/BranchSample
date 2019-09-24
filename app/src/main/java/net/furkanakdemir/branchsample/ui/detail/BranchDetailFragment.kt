@@ -13,7 +13,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_branch_detail.*
 import net.furkanakdemir.branchsample.R
-import net.furkanakdemir.branchsample.image.ImageLoader
 import net.furkanakdemir.branchsample.ui.BranchViewModel
 import net.furkanakdemir.branchsample.ui.base.BaseFragment
 import javax.inject.Inject
@@ -29,9 +28,6 @@ class BranchDetailFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var branchViewModel: BranchViewModel
-
-    @Inject
-    lateinit var imageLoader: ImageLoader
 
     override val title: String
         get() = TITLE_DETAIL

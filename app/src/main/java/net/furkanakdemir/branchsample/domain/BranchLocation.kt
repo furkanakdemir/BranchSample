@@ -5,7 +5,5 @@ data class BranchLocation(
     val longitude: Double = 0.0
 ) {
     fun isAssigned(): Boolean = latitude != 0.0 && longitude != 0.0
-    override fun toString(): String {
-        return "$latitude, $longitude)"
-    }
+    override fun toString(): String = "$latitude,$longitude"
 }

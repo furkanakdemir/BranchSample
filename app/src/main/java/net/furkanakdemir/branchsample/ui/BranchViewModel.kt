@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.furkanakdemir.branchsample.data.Branch
+import net.furkanakdemir.branchsample.domain.BranchLocation
 import net.furkanakdemir.branchsample.domain.GetBranchesUseCase
 import net.furkanakdemir.branchsample.mapper.Mapper
 import net.furkanakdemir.branchsample.result.Event
@@ -55,6 +56,12 @@ class BranchViewModel @Inject constructor(
 
     fun selectBranch(item: BranchViewItem) {
         _branchLiveData.value = item
+    }
+
+    fun setLocation(branchLocation: BranchLocation) {
+        getBranchesUseCase.location = branchLocation
+
+        getBranches()
     }
 
     sealed class ViewState {
