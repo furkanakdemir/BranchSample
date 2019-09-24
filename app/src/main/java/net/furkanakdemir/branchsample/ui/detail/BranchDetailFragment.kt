@@ -47,6 +47,7 @@ class BranchDetailFragment : BaseFragment() {
         branchViewModel.branchLiveData.observe(viewLifecycleOwner, Observer {
             nameTextView.text = it.name
             categoryTextView.text = it.category
+            addressTextView.text = it.address
         })
     }
 

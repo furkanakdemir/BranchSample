@@ -14,11 +14,13 @@ class DomainMapper @Inject constructor() : Mapper<PlacesResponse.Response.VenueR
                     id.orEmpty(),
                     name.orEmpty(),
                     categories?.first()?.name.orEmpty(),
-                    location?.distance.orZero()
+                    location?.distance.orZero(),
+                    location?.formattedAddress?.first().orEmpty()
                 )
             }
         } ?: Branch.default()
     }
+
+    private fun Int?.orZero(): Int = this ?: 0
 }
 
-private fun Int?.orZero(): Int = this ?: 0

@@ -77,16 +77,17 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/nameTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_small"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:layout_marginBottom="@dimen/spacing_small"
-                    android:id="@+id/nameTextView"
-                    android:text="@string/app_name"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -113,16 +114,55 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_small"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:layout_marginBottom="@dimen/spacing_small"
-                    android:text="@string/app_name"
-                    android:id="@+id/categoryTextView"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_product_row">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:padding="@dimen/spacing_small"
+                    tools:ignore="ContentDescription"
+                    android:src="@drawable/ic_info"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/addressTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:ellipsize="end"
+                    android:lines="3"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem/random" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

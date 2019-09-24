@@ -1,7 +1,7 @@
-package net.furkanakdemir.branchsample.ui
+package net.furkanakdemir.branchsample.mapper
 
 import net.furkanakdemir.branchsample.data.Branch
-import net.furkanakdemir.branchsample.mapper.Mapper
+import net.furkanakdemir.branchsample.ui.BranchViewItem
 import javax.inject.Inject
 
 class ViewMapper @Inject constructor() : Mapper<Branch, BranchViewItem> {
@@ -13,7 +13,8 @@ class ViewMapper @Inject constructor() : Mapper<Branch, BranchViewItem> {
                     id,
                     name,
                     category,
-                    formatDistance(distance)
+                    formatDistance(distance),
+                    address
                 )
             }
         } ?: BranchViewItem.default()
