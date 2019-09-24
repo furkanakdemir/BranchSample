@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">BranchSample</string>
     <string name="branch_list_empty">Empty List</string>
+    <string name="branch_detail_name_title">Branch Name</string>
+    <string name="branch_detail_category_title">Branch Category</string>
+    <string name="branch_detail_address_title">Branch Address</string>
 </resources>
