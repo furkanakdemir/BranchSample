@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import kotlinx.android.synthetic.main.fragment_branch_list.*
 import net.furkanakdemir.branchsample.R
 import net.furkanakdemir.branchsample.image.ImageLoader
@@ -70,7 +72,7 @@ class BranchListFragment : BaseFragment() {
         }
 
         branchesRecyclerView.apply {
-            setHasFixedSize(true)
+            addItemDecoration(DividerItemDecoration(context, VERTICAL))
             adapter = branchListAdapter
         }
     }
