@@ -5,9 +5,7 @@ import net.furkanakdemir.branchsample.data.BranchRepository
 import net.furkanakdemir.branchsample.result.Result
 import javax.inject.Inject
 
-class GetBranchesUseCase @Inject constructor(
-    private val branchRepository: BranchRepository
-) {
+class GetBranchesUseCase @Inject constructor(private val branchRepository: BranchRepository) {
 
     var location = BranchLocation()
 
