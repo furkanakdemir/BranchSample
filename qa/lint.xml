@@ -4,4 +4,8 @@
     <issue id="GradleDependency">
         <ignore regexp="is available: .*[alpha|beta]" />
     </issue>
+
+    <issue id="IconLocation">
+        <ignore path="res/drawable/supplementler.jpg" />
+    </issue>
 </lint>

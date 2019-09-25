@@ -29,6 +29,10 @@ android {
     androidExtensions {
         experimental = true
     }
+
+    lintOptions {
+        lintConfig file("../qa/lint.xml")
+    }
 }
 
 ext {
