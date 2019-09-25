@@ -23,7 +23,6 @@ object TestData {
     const val TEST_DISTANCE = 2230
     const val TEST_DISTANCE_VIEW = "$TEST_DISTANCE m"
 
-
     val TEST_CATEGORIES = listOf(
         PlacesResponse.Response.VenueRaw.Category(
             TEST_ID,

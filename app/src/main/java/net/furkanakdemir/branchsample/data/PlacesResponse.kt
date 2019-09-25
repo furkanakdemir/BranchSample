@@ -1,6 +1,5 @@
 package net.furkanakdemir.branchsample.data
 
-
 import com.google.gson.annotations.SerializedName
 
 data class PlacesResponse(

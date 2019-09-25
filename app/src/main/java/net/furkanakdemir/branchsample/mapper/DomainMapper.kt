@@ -26,4 +26,3 @@ class DomainMapper @Inject constructor() : Mapper<PlacesResponse.Response.VenueR
     private fun Int?.orZero(): Int = this ?: 0
     private fun Double?.orZero(): Double = this ?: 0.0
 }
-

@@ -9,7 +9,11 @@ import net.furkanakdemir.branchsample.data.PlacesResponse
 import net.furkanakdemir.branchsample.data.RealBranchRepository
 import net.furkanakdemir.branchsample.data.source.BranchDataSource
 import net.furkanakdemir.branchsample.data.source.RemoteBranchDataSource
-import net.furkanakdemir.branchsample.mapper.*
+import net.furkanakdemir.branchsample.mapper.DomainMapper
+import net.furkanakdemir.branchsample.mapper.ListMapper
+import net.furkanakdemir.branchsample.mapper.Mapper
+import net.furkanakdemir.branchsample.mapper.RealListMapper
+import net.furkanakdemir.branchsample.mapper.ViewMapper
 import net.furkanakdemir.branchsample.network.NetworkModule
 
 @Module(includes = [NetworkModule::class])

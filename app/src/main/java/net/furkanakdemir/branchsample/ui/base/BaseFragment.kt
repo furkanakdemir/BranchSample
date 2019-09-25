@@ -21,7 +21,6 @@ abstract class BaseFragment : DaggerFragment() {
 
     protected abstract fun observeViewModel()
 
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 

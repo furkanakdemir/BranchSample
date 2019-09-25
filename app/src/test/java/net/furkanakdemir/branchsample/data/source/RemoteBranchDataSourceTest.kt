@@ -31,7 +31,6 @@ class RemoteBranchDataSourceTest {
     private lateinit var branchService: BranchService
     private lateinit var mapper: ListMapper<PlacesResponse.Response.VenueRaw?, Branch>
 
-
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
@@ -43,7 +42,6 @@ class RemoteBranchDataSourceTest {
         mapper = RealListMapper(DomainMapper())
         branchService = Mockito.mock(BranchService::class.java)
         branchDataSource = RemoteBranchDataSource(branchService, mapper)
-
     }
 
     @Test(expected = IOException::class)
