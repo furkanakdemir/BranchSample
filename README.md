@@ -1,6 +1,6 @@
 # BranchSample
 
-This is a sample showing a list of branches in the city (default: Istanbul) using `FourSquare API`.
+This is a sample showing a list of branches in the city by device location (default: Istanbul) using `FourSquare API`.
 
 You can find unit tests in `/app/src/test` directory
 
