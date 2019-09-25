@@ -35,11 +35,6 @@ class BranchListFragment : BaseFragment() {
     }
 
     override fun observeViewModel() {
-        branchViewModel.branchesLiveData.observe(this, Observer {
-            branchListAdapter.branches = it.toMutableList()
-            showContent()
-        })
-
         branchViewModel.eventLiveData.observe(this, EventObserver {
 
             when (it) {
@@ -47,6 +42,11 @@ class BranchListFragment : BaseFragment() {
                 is BranchViewModel.ViewState.Empty -> showMessage(it.message)
                 is BranchViewModel.ViewState.Error -> showMessage(it.message)
             }
+        })
+
+        branchViewModel.branchesLiveData.observe(this, Observer {
+            branchListAdapter.branches = it.toMutableList()
+            showContent()
         })
     }
 
